@@ -1,3 +1,127 @@
+:root {
+    --color-main: #222222;
+    --color-off: #3c3c3c;
+    --color-white: #ffffff;
+    --color-off-white: #f7f7f7;
+    --color-grey: #dedede;
+}
 body {
     margin: 0;
+    font-family: 'Smythe', cursive;
 } 
+
+* {
+    box-sizing: border-box;
+}
+
+/* clear default padding and margin */
+h1, h2, h3, p, ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    min-height: 167px;
+    height: clamp(167px, 20vw, 500px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-main);
+    background-image: url("/images/header-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--color-white);
+    padding: 46px;
+}
+
+.header_title-wrapper {
+    max-width: 100%;
+    width: 600px;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+header p {
+    color: var(--color-off-white);
+    font-weight: 300;
+    font-size: clamp(1.375rem, 3vw, 1.6rem);
+}
+
+#menu {
+    max-width: 100%;
+    width: 600px;
+    margin: 0 auto;
+    padding: 22px 46px 67px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #d2d2d2;
+    padding: 45px 0;
+}
+
+.menu-item:last-of-type {
+    border-bottom: none;
+}
+
+.menu-item_emoji {
+    font-size: 4.875rem;
+    margin-right: 32px;
+}
+
+.menu-item_details {
+    margin-right: auto;
+}
+
+.menu-item_name {
+    font-size: 1.75rem;
+    margin-bottom: .5rem;
+}
+
+.menu-item_ingredients {
+    display: flex;
+    color: var(--color-off);
+    margin-bottom: .5rem;
+}
+
+.menu-item_ingredients li {
+    font-size: 1rem;
+}
+
+.menu-item_ingredients li::after {
+    content: ',';
+    margin-right: .125rem;
+}
+
+.menu-item_ingredients li:last-of-type::after {
+    content: '';
+    margin-right: 0;
+}
+
+.menu-item_price {
+    font-size: 1.4rem;
+}
+
+.menu-item_add-btn {
+    background-color: transparent;
+    border: 1.5px solid var(--color-grey);
+    font-size: 32px;
+    font-weight: 200;
+    font-family: 'Inter', sans-serif;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50rem;
+    aspect-ratio: 1 / 1;
+}

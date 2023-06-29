@@ -1,9 +1,38 @@
 <html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-       <link rel="stylesheet" href="index.css">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Smythe&display=swap" rel="stylesheet">
     </head>
     <body>
-	<script src="index.js"></script>
+        <header>
+            <div class="header_title-wrapper">
+                <h1>Jimmy's Diner</h1>
+                <p>The best burgers and pizzas in town.</p>
+            </div>
+        </header>
+        <div id="menu">
+            <!-- Menu items go here -->
+            <div class="menu-item">
+                <p class="menu-item_emoji">🍕</p>
+                <div class="menu-item_details">
+                    <h2 class="menu-item_name">Pizza</h2>
+                    <ul class="menu-item_ingredients">
+                        <li>pepperoni</li>
+                        <li>mushroom</li>
+                        <li>mozarella</li>
+                    </ul>
+                    <p class="menu-item_price">$14</p>
+                </div>
+                <button class="menu-item_add-btn">+</button>
+
+            </div>
+        </div>
+	<script src="index.js" type="module"></script>
     </body>
 </html>
 
