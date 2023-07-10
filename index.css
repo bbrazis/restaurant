@@ -5,11 +5,15 @@
     --color-off-white: #f7f7f7;
     --color-grey: #dedede;
     --padding-lr: 46px;
+    --display-font: 'Caprasimo', cursive;
+    --main-font: 'Inter', sans-serif;
 }
 body {
     margin: 0;
-    font-family: 'Smythe', cursive;
+    font-family: var(--main-font);
     font-weight: 400;
+    letter-spacing: .0125rem;
+    background-color: var(--color-off-white);
 } 
 
 * {
@@ -21,6 +25,11 @@ h1, h2, h3, p, ul, li {
     padding: 0;
     margin: 0;
     font-weight: 400;
+}
+
+h1, h2, h3 {
+    font-family: var(--display-font);
+    letter-spacing: .05rem;
 }
 
 ul {
@@ -50,7 +59,7 @@ header {
     left: 50%;
     top: 1rem;
     inset: 1rem auto auto max(calc(50% - 300px), 46px);
-    width: 40px;
+    width: max(3vw, 25px);
 }
 
 .header_title-wrapper {
@@ -59,22 +68,38 @@ header {
 }
 
 h1 {
-    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-size: clamp(1.75rem, 5vw, 3rem);
     margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px #222222;
 }
 
 header p {
     color: var(--color-off-white);
     line-height: .86;
     font-size: clamp(1.375rem, 3vw, 1.6rem);
+    text-shadow: 1px 1px 3px #222222;
+}
+
+.container {
+    width: 600px;
+    margin: -2rem auto 0px;
+    box-shadow: 0 6px 12px 3px rgba(0,0,0,.125);
+    position: relative;
+    z-index: 1;
 }
 
 /* menu styles */
 #menu {
     max-width: 100%;
-    width: 600px;
-    margin: 0 auto 40px;
     padding: 22px var(--padding-lr) 22px;
+    background-color: var(--color-white);
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 600px) {
+    #menu {
+        margin-top: 0;
+    }    
 }
 
 .menu-item {
@@ -99,7 +124,7 @@ header p {
 }
 
 .menu-item_name {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin-bottom: .5rem;
     line-height: 1.05;
 }
@@ -125,6 +150,7 @@ header p {
 }
 
 .menu-item_price {
+    font-family: var(--display-font);
     font-size: 1.4rem;
 }
 
@@ -154,7 +180,8 @@ header p {
     color: #065F46;
     font-size: 2rem;
     line-height: 1.05;
-    padding: 0 var(--padding-lr);
+    padding: 0 var(--padding-lr) 22px;
+    background-color: var(--color-white);
 }
 
 .success-box {
@@ -209,7 +236,7 @@ header p {
 }
 
 .order_heading {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 1.0125;
     margin-block-end: 62px;
 }
@@ -227,7 +254,8 @@ header p {
 }
 
 .order-item_name {
-    font-size: 1.75rem;
+    font-family: var(--display-font);
+    font-size: 1.4rem;
     margin-right: 8px;
     margin-inline-end: 8px;
 }
@@ -240,6 +268,7 @@ header p {
 }
 
 .order-item_price {
+    font-family: var(--display-font);
     font-size: 1.25rem;
     line-height: 1.25;
 }
@@ -252,11 +281,12 @@ header p {
 }
 
 .order-total_heading {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 1.5;
 }
 
 .order-total p {
+    font-family: var(--display-font);
     font-size: 1.25rem;
     line-height: 1.5;
 }
@@ -266,9 +296,10 @@ header p {
     border: none;
     width: 100%;
     color: var(--color-white);
-    font-size: 1rem;
+    text-transform: uppercase;
+    font-size: 1.125rem;
     font-weight: 700;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--main-font);
     padding: 18px 12px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
     border-radius: 1.5px;
@@ -284,14 +315,22 @@ dialog {
     max-width: calc(100%-4.75rem);
     width: calc(600px - 4.75rem);
     padding: 40px 20px 20px;
-    font-family: 'inter', sans-serif;
+    font-family: var(--main-font);
     border-radius: 3px;
     border: none;
     box-shadow: 0 0 40px 40px rgba(0,0,0,.125);
 }
 
+#close-btn {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 16px;
+    right: 8px;
+}
+
 dialog h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.9;
     margin-block-end: 42px;
@@ -313,9 +352,7 @@ dialog #checkout-form {
     color: var(--color-off);
 }
 
-
-
-#checkout-form input:invalid, .is-invalid {
+#checkout-form input:invalid {
     border-color: red;
 }
 
@@ -325,5 +362,6 @@ dialog #checkout-form {
 
 #checkout-btn:disabled {
     background-color: var(--color-grey);
+    color: var(--color-off);
     cursor: not-allowed;
 }

@@ -4,9 +4,9 @@
         <link rel="stylesheet" href="index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Smythe&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@200&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/0fe6e497d7.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header>
@@ -22,24 +22,26 @@
                 <p>The best burgers and pizzas in town.</p>
             </div>
         </header>
-        <div id="menu">
-            <!-- Menu items go here -->
-            <div class="menu-item">
-                <p class="menu-item_emoji">🍕</p>
-                <div class="menu-item_details">
-                    <h2 class="menu-item_name">Pizza</h2>
-                    <ul class="menu-item_ingredients">
-                        <li>pepperoni</li>
-                        <li>mushroom</li>
-                        <li>mozarella</li>
-                    </ul>
-                    <p class="menu-item_price">$14</p>
+        <div class="container">
+            <div id="menu">
+                <!-- Menu items go here -->
+                <div class="menu-item">
+                    <p class="menu-item_emoji">🍕</p>
+                    <div class="menu-item_details">
+                        <h2 class="menu-item_name">Pizza</h2>
+                        <ul class="menu-item_ingredients">
+                            <li>pepperoni</li>
+                            <li>mushroom</li>
+                            <li>mozarella</li>
+                        </ul>
+                        <p class="menu-item_price">$14</p>
+                    </div>
+                    <button class="menu-item_add-btn">+</button>
                 </div>
-                <button class="menu-item_add-btn">+</button>
             </div>
-        </div>
-        <div id="success-box" class="success-box">
-            <p>Thanks, James! Your order is on its way!</p>
+            <div id="success-box" class="success-box">
+                <p>Thanks, James! Your order is on its way!</p>
+            </div>
         </div>
         <div class="order-dialog" id="order-dialog">
             <div class="order_inner">
@@ -60,6 +62,7 @@
             </div>
         </div>
         <dialog id="checkout">
+            <button id="close-btn" aria-label="close checkout button"><i class="fa-sharp fa-solid fa-xmark-large"></i></button>
             <h2>Enter card details</h2>
             <form id="checkout-form">
                 <input id="checkout_name" name="checkout-name" class="input" type="text" placeholder="Enter your name" required>

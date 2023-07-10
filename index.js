@@ -5,6 +5,7 @@ const orderDialogBox = document.getElementById('order-dialog')
 const orderBtn = document.getElementById('order-btn')
 const checkoutModal = document.getElementById('checkout')
 const checkoutBtn = document.getElementById('checkout-btn')
+const closeBtn = document.getElementById('close-btn')
 
 let orderArr = []
 const totalPrice = []
@@ -24,9 +25,16 @@ document.addEventListener('click', function(e){
     }
 })
 
-orderBtn.addEventListener('click', function(){
-    checkoutModal.showModal()
+checkoutModal.addEventListener('click', (e) => {
+    const rect = checkoutModal.getBoundingClientRect()
+    const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height && rect.left <= e.clientX && e.clientX <= rect.left + rect.width)
+    if(!isInDialog){
+        checkoutModal.close()
+    }
 })
+
+closeBtn.addEventListener('click', () =>  checkoutModal.close() )
+orderBtn.addEventListener('click', () => checkoutModal.showModal() )
 
 checkoutBtn.addEventListener('click', (e) => {
     e.preventDefault()
