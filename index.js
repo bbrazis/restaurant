@@ -2,10 +2,10 @@ import { menuArray } from "/data.js"
 
 const orderList = document.getElementById('order')
 const orderDialogBox = document.getElementById('order-dialog')
-// const orderStatus = localStorage.getItem('current-order')
 const orderBtn = document.getElementById('order-btn')
 const checkoutModal = document.getElementById('checkout')
 const checkoutBtn = document.getElementById('checkout-btn')
+
 let orderArr = []
 const totalPrice = []
 
@@ -29,7 +29,6 @@ orderBtn.addEventListener('click', function(){
 })
 
 checkoutBtn.addEventListener('click', () => {
-    // clearLocalCart()
     const checkoutName = document.getElementById('checkout_name').value
 
     document.getElementById('success-box').innerHTML = `<p>Thanks, ${checkoutName}! Your order is on its way!</p>`
@@ -55,18 +54,6 @@ document.getElementById('checkout-form').addEventListener('change', function(){
     }
     checkoutBtn.disabled = !isValid
 })
-
-// later enchancement for when current orders are saved to local memory
-// if( orderStatus ){
-//     renderMenu()
-//     orderArr.push(parseLocalCart())
-//     renderCart()
-//     updateTotalPrice()
-//     toggleCart()
-// } else {
-//     orderDialogBox.classList.remove('dialog-open')
-//     renderMenu()
-// }
 
 function toggleCart(){
     if (orderArr.length > 0) {
@@ -119,7 +106,6 @@ function addToCart(itemId) {
     orderArr.push(menuArray[itemId])
     totalPrice.push(menuArray[itemId].price)
 
-    // setLocalCart(orderArr)
     renderCart()
     updateTotalPrice()
     toggleCart()
@@ -188,27 +174,3 @@ function checkCvv(){
 }
 
 renderMenu()
-
-// function parseLocalCart() {
-//     return JSON.parse(orderStatus)
-// }
-
-// function setLocalCart(array) {
-//     localStorage.setItem('current-order', JSON.stringify(array))
-// }
-
-// function clearLocalCart() {
-//     localStorage.remove('current-order')
-// }
-// notes for Friday
-// when adding to the ordering cart, get the current
-// local copy of the cart and change it from a string
-// into JSON and then replace it with the new cart items
-// then set the new instance into local storage
-
-// when removing an item from the cart, make sure to grab
-// the current cart instance from local storage and update
-// it before updating it in local storage
-
-// after completing a transaction, clear the local storage
-// version of the cart
