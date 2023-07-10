@@ -29,9 +29,38 @@
                     <p class="menu-item_price">$14</p>
                 </div>
                 <button class="menu-item_add-btn">+</button>
-
             </div>
         </div>
+        <div id="success-box" class="success-box">
+            <p>Thanks, James! Your order is on its way!</p>
+        </div>
+        <div class="order-dialog" id="order-dialog">
+            <div class="order_inner">
+                <div class="order_divider-top"></div>
+                <h2 class="order_heading">Your order</h2>
+                <ul class="order-list" id="order">
+                    <li>
+                        <p class="order-item_name">Pizza</p>
+                        <span id="order-item_id">remove</span>
+                        <p class="order-item_price">$14</p>
+                    </li>
+                </ul>
+                <div class="order-total">
+                    <h2 class="order-total_heading">Total Price</h2>
+                    <p id="order-total_price">$#</p>
+                </div>
+                <button class="order_submit-btn" id="order-btn">Complete order</button>
+            </div>
+        </div>
+        <dialog id="checkout">
+            <h2>Enter card details</h2>
+            <form id="checkout-form">
+                <input id="checkout_name" name="checkout-name" class="input is-invalid" type="text" placeholder="Enter your name" required>
+                <input id="checkout_card" name="checkout-card" class="input is-invalid" type="text" pattern="[0-9]+" minlength="16" maxlength="16" placeholder="Enter card number" required>
+                <input id="checkout_cvv" name="checkout-cvv" class="input is-invalid" type="text" placeholder="Enter CVV" minlength="3" maxlength="3" minlength="3" required>
+                <button type="submit" id="checkout-btn" disabled>Pay</button>
+            </form>
+        </dialog>
 	<script src="index.js" type="module"></script>
     </body>
 </html>
