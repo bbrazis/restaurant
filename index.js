@@ -33,12 +33,21 @@ checkoutBtn.addEventListener('click', (e) => {
 
     const checkoutName = document.getElementById('checkout_name').value
     const successBox = document.getElementById('success-box')
+
     successBox.innerHTML = `<p>Thanks, ${checkoutName}! Your order is on its way!</p>`
     successBox.classList.toggle('display-block')
-
+    
     orderArr = []
     toggleCart()
     checkoutModal.close()
+
+    // clear inputs after "submit"
+    let inputs = document.getElementsByClassName('input')
+
+    for (let i = 0; i < inputs.length; i++){
+        inputs[i].value = ''
+    }
+    checkoutBtn.disabled = true
 })
 
 document.getElementById('checkout-form').addEventListener('change', function(){
