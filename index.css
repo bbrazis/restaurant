@@ -29,16 +29,28 @@ ul {
 
 header {
     min-height: 167px;
-    height: clamp(167px, 20vw, 500px);
+    width: 100%;
+    /* height: clamp(167px, 20vw, 500px); */
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--color-main);
-    background-image: url("/images/header-img.jpg");
+    background-image: url("/images/header-img_tiny.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: 50% 50%;
+    aspect-ratio: 16 / 5;
     color: var(--color-white);
     padding: 46px;
+    position: relative;
+}
+
+.header_logo-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    inset: 1rem auto auto max(calc(50% - 300px), 46px);
+    width: 40px;
 }
 
 .header_title-wrapper {
