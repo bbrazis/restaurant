@@ -55,8 +55,8 @@
         <dialog id="checkout">
             <h2>Enter card details</h2>
             <form id="checkout-form">
-                <input id="checkout_name" name="checkout-name" class="input is-invalid" type="text" placeholder="Enter your name" required>
-                <input id="checkout_card" name="checkout-card" class="input is-invalid" type="text" pattern="[0-9]+" minlength="16" maxlength="16" placeholder="Enter card number" required>
+                <input id="checkout_name" name="checkout-name" class="input" type="text" placeholder="Enter your name" required>
+                <input id="checkout_card" name="checkout-card" class="input" type="text" pattern="^[0-9]{13,19}$" minlength="16" maxlength="16" placeholder="Enter card number" required>
                 <input id="checkout_cvv" name="checkout-cvv" class="input is-invalid" type="text" placeholder="Enter CVV" minlength="3" maxlength="3" minlength="3" required>
                 <button type="submit" id="checkout-btn" disabled>Pay</button>
             </form>

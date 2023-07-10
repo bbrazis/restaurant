@@ -28,23 +28,23 @@ orderBtn.addEventListener('click', function(){
     checkoutModal.showModal()
 })
 
-checkoutBtn.addEventListener('click', () => {
-    const checkoutName = document.getElementById('checkout_name').value
+checkoutBtn.addEventListener('click', (e) => {
+    e.preventDefault()
 
-    document.getElementById('success-box').innerHTML = `<p>Thanks, ${checkoutName}! Your order is on its way!</p>`
+    const checkoutName = document.getElementById('checkout_name').value
+    const successBox = document.getElementById('success-box')
+    successBox.innerHTML = `<p>Thanks, ${checkoutName}! Your order is on its way!</p>`
+    successBox.classList.toggle('display-block')
 
     orderArr = []
     toggleCart()
     checkoutModal.close()
-    document.getElementById('success-box').classList.toggle('display-block')
 })
 
-document.getElementById('checkout_name').addEventListener('change', checkName)
-document.getElementById('checkout_card').addEventListener('change', checkCard)
-document.getElementById('checkout_cvv').addEventListener('change', checkCvv)
 document.getElementById('checkout-form').addEventListener('change', function(){
     let inputs = document.getElementsByClassName('input')
     let isValid = true
+
     for (let i = 0; i < inputs.length; i++){
         let changedInput = inputs[i]
         if (changedInput.value.trim() === '' || changedInput.value === null){
@@ -52,7 +52,11 @@ document.getElementById('checkout-form').addEventListener('change', function(){
             break
         }
     }
-    checkoutBtn.disabled = !isValid
+
+    if (document.getElementById('checkout-form').checkValidity()){
+        checkoutBtn.disabled = !isValid
+    }
+    
 })
 
 function toggleCart(){
@@ -141,36 +145,6 @@ function updateTotalPrice() {
     const total = totalPrice.reduce((a, b) => a + b, 0)
     // render out total to cart
     document.getElementById('order-total_price').innerHTML = `$${total}`
-}
-
-function checkName(){
-    const checkoutName = document.getElementById('checkout_name')
-
-    if (checkoutName.value.length > 0){
-        checkoutName.classList.remove('is-invalid')
-    } else {
-        checkoutName.classList.add('is-invalid')
-    }
-}
-
-function checkCard(){
-    const checkoutCard = document.getElementById('checkout_card')
-
-    if (checkoutCard.value.length === 16){
-        checkoutCard.classList.remove('is-invalid')
-    } else {
-        checkoutCard.classList.add('is-invalid')
-    }
-}
-
-function checkCvv(){
-    const checkoutCvv = document.getElementById('checkout_cvv')
-
-    if (checkoutCvv.value.length === 3){
-        checkoutCvv.classList.remove('is-invalid')
-    } else {
-        checkoutCvv.classList.add('is-invalid')
-    }
 }
 
 renderMenu()
