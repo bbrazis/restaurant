@@ -1,5 +1,6 @@
 import { menuArray } from "/data.js"
 
+// element constants
 const orderList = document.getElementById('order')
 const orderDialogBox = document.getElementById('order-dialog')
 const orderBtn = document.getElementById('order-btn')
@@ -7,21 +8,23 @@ const checkoutModal = document.getElementById('checkout')
 const checkoutBtn = document.getElementById('checkout-btn')
 const closeBtn = document.getElementById('close-btn')
 
+// arrays
 let orderArr = []
 const totalPrice = []
 
 // clearing order list from pre-existing html
 orderList.innerHTML = ''
 
+// event listeners
 document.addEventListener('click', function(e){
+    // if clicking + button on menu
     if(e.target.dataset.buyId){
         addToCart(e.target.dataset.buyId)
     }
+    // if clicking remove button on menu
     if(e.target.dataset.cartId){
         removeCartItem(e.target.dataset.cartId)
-        renderCart()
-        updateTotalPrice()
-        toggleCart()
+        
     }
 })
 
@@ -55,6 +58,7 @@ checkoutBtn.addEventListener('click', (e) => {
     for (let i = 0; i < inputs.length; i++){
         inputs[i].value = ''
     }
+    // re-disable pay button
     checkoutBtn.disabled = true
 })
 
@@ -76,7 +80,9 @@ document.getElementById('checkout-form').addEventListener('change', function(){
     
 })
 
+// functions
 function toggleCart(){
+    // if cart has more than 0 items show cart or else hide it
     if (orderArr.length > 0) {
         orderDialogBox.classList.add('dialog-open')
     } else {
@@ -86,6 +92,7 @@ function toggleCart(){
 
 function createMenu(){
     let menuList = ''
+
     menuArray.forEach(item => {
         let ingredientsList = ''
         if(item.ingredients.length > 0){
@@ -95,6 +102,7 @@ function createMenu(){
                 `
             })
         }
+
         menuList += `
         <div class="menu-item">
             <p class="menu-item_emoji">${item.emoji}</p>
@@ -109,6 +117,7 @@ function createMenu(){
         </div>
         `
     });
+
     return menuList
 }
 
@@ -155,6 +164,10 @@ function removeCartItem(num) {
     orderArr.splice(index, 1)
     // removing specific price from total price array
     totalPrice.splice(index, 1)
+
+    renderCart()
+    updateTotalPrice()
+    toggleCart()
 }
 
 function updateTotalPrice() {
@@ -164,4 +177,5 @@ function updateTotalPrice() {
     document.getElementById('order-total_price').innerHTML = `$${total}`
 }
 
+// initial menu render
 renderMenu()
