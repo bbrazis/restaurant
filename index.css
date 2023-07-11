@@ -81,6 +81,7 @@ header p {
 }
 
 .container {
+    max-width: 100%;
     width: 600px;
     margin: -2rem auto 0px;
     box-shadow: 0 6px 12px 3px rgba(0,0,0,.125);
@@ -110,9 +111,9 @@ header p {
     padding: 45px 0;
 }
 
-/* .menu-item:last-of-type {
+.menu-item:last-of-type {
     border-bottom: none;
-} */
+}
 
 .menu-item_emoji {
     font-size: 4.875rem;
