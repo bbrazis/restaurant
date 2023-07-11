@@ -24,13 +24,14 @@ document.addEventListener('click', function(e){
     // if clicking remove button on menu
     if(e.target.dataset.cartId){
         removeCartItem(e.target.dataset.cartId)
-        
     }
 })
 
 checkoutModal.addEventListener('click', (e) => {
     const rect = checkoutModal.getBoundingClientRect()
     const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height && rect.left <= e.clientX && e.clientX <= rect.left + rect.width)
+    
+    // if dialog backdrop is clicked close the dialog modal
     if(!isInDialog){
         checkoutModal.close()
     }
@@ -42,12 +43,14 @@ orderBtn.addEventListener('click', () => checkoutModal.showModal() )
 checkoutBtn.addEventListener('click', (e) => {
     e.preventDefault()
 
+    // update order success message and show
     const checkoutName = document.getElementById('checkout_name').value
     const successBox = document.getElementById('success-box')
 
     successBox.innerHTML = `<p>Thanks, ${checkoutName}! Your order is on its way!</p>`
     successBox.classList.toggle('display-block')
     
+    // clear cart and close out all modals
     orderArr = []
     toggleCart()
     checkoutModal.close()
