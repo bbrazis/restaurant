@@ -8,6 +8,7 @@
     --display-font: 'Caprasimo', cursive;
     --main-font: 'Inter', sans-serif;
 }
+
 body {
     margin: 0;
     font-family: var(--main-font);
@@ -39,7 +40,6 @@ ul {
 header {
     min-height: 167px;
     width: 100%;
-    /* height: clamp(167px, 20vw, 500px); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,7 +92,10 @@ header p {
     background-color: var(--color-white);
 }
 
-/* menu styles */
+/* ============================================= */
+/* ================ menu styles ================ */
+/* ============================================= */
+
 #menu {
     max-width: 100%;
     padding: 22px var(--padding-lr) 22px;
@@ -173,7 +176,10 @@ header p {
     padding-bottom: 6px;
 }
 
-/* message box styles */
+/* ============================================= */
+/* =========== message box styles ============== */
+/* ============================================= */
+
 #success-box {
     max-width: 100%;
     width: 600px;
@@ -198,7 +204,10 @@ header p {
     background-color: #ECFDF5;
 }
 
-/* order dialog box styles */
+/* ============================================= */
+/* ======= order dialog box styles ============= */
+/* ============================================= */
+
 .order-dialog {
     position: sticky;
     bottom: 0%;
@@ -220,29 +229,18 @@ header p {
     text-align: center;
     max-width: 100%;
     width: 600px;
-    padding: 56px var(--padding-lr);
+    padding: 20px var(--padding-lr) 30px;
 }
 
 .dialog-open {
     height: auto;
 }
 
-.order_divider-top {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    inset: 0% 0% auto 0%;
-    height: 1px;
-    width: calc(100% - var(--padding-lr));
-    background-color: var(--color-grey);
-    margin: 0 auto;
-}
-
 .order_heading {
     font-size: 1.5rem;
     line-height: 1.0125;
     margin-block-end: 62px;
+    text-transform: capitalize;
 }
 
 .order-list { 
@@ -259,7 +257,7 @@ header p {
 
 .order-item_name {
     font-family: var(--display-font);
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     margin-right: 8px;
     margin-inline-end: 8px;
 }
@@ -273,7 +271,7 @@ header p {
 
 .order-item_price {
     font-family: var(--display-font);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     line-height: 1.25;
 }
 
@@ -285,13 +283,13 @@ header p {
 }
 
 .order-total_heading {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1.5;
 }
 
 .order-total p {
     font-family: var(--display-font);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     line-height: 1.5;
 }
 
@@ -310,15 +308,18 @@ header p {
     cursor: pointer;
 }
 
-/* checkout dialog */
+/* ============================================= */
+/* ============= checkout dialog =============== */
+/* ============================================= */
+
 dialog {
     position: fixed;
     inset: 50% auto auto 50%;
     transform: translate(-50%,-50%);
     text-align: center;
-    max-width: calc(100%-4.75rem);
+    max-width: calc(100% - 4.75rem);
     width: calc(600px - 4.75rem);
-    padding: 40px 20px 20px;
+    padding: 20px;
     font-family: var(--main-font);
     border-radius: 3px;
     border: none;
@@ -329,15 +330,16 @@ dialog {
     background-color: transparent;
     border: none;
     position: absolute;
-    top: 16px;
-    right: 8px;
+    top: 20px;
+    right: 12px;
 }
 
 dialog h2 {
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.9;
-    margin-block-end: 42px;
+    margin-block-end: 30px;
+    text-transform: capitalize;
 }
 
 dialog #checkout-form {
@@ -347,11 +349,11 @@ dialog #checkout-form {
 }
 
 #checkout-form input {
-    border-radius: 2px;
+    border-radius: 3px;
     border: 1px solid var(--color-off);
-    padding: 16px 22px;
-    margin-block-end: 1.45rem;
-    font-size: 1.25rem;
+    padding: 10px 16px;
+    margin-block-end: 20px;
+    font-size: 1.125rem;
     line-height: 1.9;
     color: var(--color-off);
 }
@@ -361,7 +363,7 @@ dialog #checkout-form {
 }
 
 #checkout-form input:last-of-type {
-    margin-block-end: 2.9rem;
+    margin-block-end: 30px;
 }
 
 #checkout-btn:disabled {

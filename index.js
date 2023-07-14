@@ -52,10 +52,7 @@ checkoutBtn.addEventListener('click', (e) => {
         successBox.classList.toggle('display-block')
         
         // clear cart and close out all modals
-        orderArr = []
-        totalPrice = []
-        toggleCart()
-        checkoutModal.close()
+        reset()
 
         // clear inputs after "submit"
         let inputs = document.getElementsByClassName('input')
@@ -139,9 +136,7 @@ function addToCart(itemId) {
     orderArr.push(menuArray[itemId])
     totalPrice.push(menuArray[itemId].price)
 
-    renderCart()
-    updateTotalPrice()
-    toggleCart()
+    handleCart()
 }
 
 function renderCart(){
@@ -168,9 +163,7 @@ function removeCartItem(num) {
     // removing specific price from total price array
     totalPrice.splice(index, 1)
 
-    renderCart()
-    updateTotalPrice()
-    toggleCart()
+    handleCart()    
 }
 
 function updateTotalPrice() {
@@ -178,6 +171,19 @@ function updateTotalPrice() {
     const total = totalPrice.reduce((a, b) => a + b, 0)
     // render out total to cart
     document.getElementById('order-total_price').innerHTML = `$${total}`
+}
+
+function handleCart() {
+    renderCart()
+    updateTotalPrice()
+    toggleCart()
+}
+
+function reset() {
+    orderArr = []
+    totalPrice = []
+    toggleCart()
+    checkoutModal.close()
 }
 
 // initial menu render
