@@ -10,7 +10,7 @@ const closeBtn = document.getElementById('close-btn')
 
 // arrays
 let orderArr = []
-const totalPrice = []
+let totalPrice = []
 
 // clearing order list from pre-existing html
 orderList.innerHTML = ''
@@ -41,28 +41,31 @@ closeBtn.addEventListener('click', () =>  checkoutModal.close() )
 orderBtn.addEventListener('click', () => checkoutModal.showModal() )
 
 checkoutBtn.addEventListener('click', (e) => {
-    e.preventDefault()
+    if (document.getElementById('checkout-form').checkValidity()){
+        e.preventDefault()
 
-    // update order success message and show
-    const checkoutName = document.getElementById('checkout_name').value
-    const successBox = document.getElementById('success-box')
+        // update order success message and show
+        const checkoutName = document.getElementById('checkout_name').value
+        const successBox = document.getElementById('success-box')
 
-    successBox.innerHTML = `<p>Thanks, ${checkoutName}! Your order is on its way!</p>`
-    successBox.classList.toggle('display-block')
-    
-    // clear cart and close out all modals
-    orderArr = []
-    toggleCart()
-    checkoutModal.close()
+        successBox.innerHTML = `<p>Thanks, ${checkoutName}! Your order is on its way!</p>`
+        successBox.classList.toggle('display-block')
+        
+        // clear cart and close out all modals
+        orderArr = []
+        totalPrice = []
+        toggleCart()
+        checkoutModal.close()
 
-    // clear inputs after "submit"
-    let inputs = document.getElementsByClassName('input')
+        // clear inputs after "submit"
+        let inputs = document.getElementsByClassName('input')
 
-    for (let i = 0; i < inputs.length; i++){
-        inputs[i].value = ''
+        for (let i = 0; i < inputs.length; i++){
+            inputs[i].value = ''
+        }
+        // re-disable pay button
+        checkoutBtn.disabled = true
     }
-    // re-disable pay button
-    checkoutBtn.disabled = true
 })
 
 document.getElementById('checkout-form').addEventListener('change', function(){
@@ -77,10 +80,7 @@ document.getElementById('checkout-form').addEventListener('change', function(){
         }
     }
 
-    if (document.getElementById('checkout-form').checkValidity()){
-        checkoutBtn.disabled = !isValid
-    }
-    
+    checkoutBtn.disabled = !isValid    
 })
 
 // functions
